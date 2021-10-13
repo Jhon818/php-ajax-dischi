@@ -18,7 +18,18 @@
 </head>
 <body>
     <div id="app">
+        <header class="d-flex justify-content-evenly bg-secondary">
+            <img class="logo" src="https://iconarchive.com/download/i98446/dakirby309/simply-styled/Spotify.ico" alt="">
+        <div class="d-flex justify-content-center">
+    <div class="d-flex align-items-center">
+      <input type="text" v-model="inputText" />
+      <button @click="filteredAlbumList">Search</button>
+    </div>
+</div>
+
+        </header>
     <main class="bg-main d-flex align-items-center">
+        <section class="container">
 <ul class="row">
       <li class="col-xl-2 col-lg-2 col-sm-5 text-center m-3 p-2" v-for="(card,index) in cards" :key="index">
 <img class="w-100" :src="card.poster" alt="">
@@ -40,10 +51,6 @@
     </div>
 
 <style>
-    body {
-        width: 100vw;
-        height: 100vh;
-    }
     li {
     background: rgb(13, 12, 36);
     list-style: none;
@@ -59,10 +66,15 @@ span {
     width: 10em;
 }
 
+header > img.logo {
+    width: 3em;
+}
+
 #app {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
   }
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="js/main.js"></script>
