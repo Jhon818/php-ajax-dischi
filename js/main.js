@@ -4,7 +4,6 @@ const app = new Vue({
     data: {
         inputText: "",
         cards: [],
-        albumGenre: [],
     },
     // stampa dei dischi tramite VueJs da chiamata Api usando un server locale php
     created() {
@@ -13,16 +12,16 @@ const app = new Vue({
             .then((res) => {
                 this.cards = (res.data);
             })
-           
+
 
     }, methods: {
         filteredAlbumList() {
             axios
-            .get('http://localhost:8888/php-ajax-dischi/api/server.php')
-            .then((res) => {
-                // filtering array using filter method
-                this.cards = (res.data.filter(item => item.genre.toLowerCase().includes(this.inputText)));
-            })
+                .get('http://localhost:8888/php-ajax-dischi/api/server.php')
+                .then((res) => {
+                    // filtering array using filter method
+                    this.cards = (res.data.filter(item => item.genre.toLowerCase().includes(this.inputText)));
+                })
         },
     }
 
